@@ -6,7 +6,8 @@ A production-ready URL Shortener built with a focus on system design principles 
 
 ## Architecture
 
-![System Architecture](./architecture.png)
+![System Architecture]<img width="990" height="660" alt="image" src="https://github.com/user-attachments/assets/41b71487-0a55-47c2-982e-b5c47f731ffc" />
+
 
 - Client sends a long URL → API generates a short code → saved to Neon DB
 - On redirect, request hits Rate Limiter → checks Upstash Redis first
@@ -80,7 +81,7 @@ Redirects the client to the original long URL. Logs a click event to the analyti
 |---|---|---|
 | id | SERIAL PRIMARY KEY | Auto-incremented ID |
 | short_code | VARCHAR | Unique short code |
-| long_url | TEXT | Original long URL |
+| url | TEXT | Original long URL |
 | created_at | TIMESTAMP | Time of creation |
 
 ### clicks
@@ -126,22 +127,6 @@ npm start
 
 Server runs at `http://localhost:3000`
 
-## Folder Structure
-
-```
-url-shortener/
-├── src/
-│   ├── index.js          # Express server entry point
-│   ├── db.js             # Neon DB connection
-│   ├── cache.js          # Upstash Redis connection
-│   └── routes/
-│       └── url.js        # POST /shorten, GET /:shortcode
-├── .env
-├── .gitignore
-└── package.json
-```
-
----
 
 ## What I'd Improve at Scale
 
@@ -154,6 +139,11 @@ url-shortener/
 ## Live Demo
 
 Base URL: `https://url-shortener-5kco.onrender.com`
+
+Note: This project is a backend API and does not include a frontend interface or homepage. Opening the base URL directly in a browser may return a not found response.
+
+To test the application, use an API client such as Postman and call the available endpoints documented below.
+
 
 ---
 
