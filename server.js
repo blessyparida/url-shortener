@@ -6,9 +6,22 @@ require("./routes/urlRoutes");
 
 dotenv.config();
 
+
 const app = express();
 
 app.use(express.json());
+
+app.get("/test-db", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT NOW()");
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("DB connection failed");
+  }
+});
+
+
 app.use(
 "/api",
 urlRoutes
