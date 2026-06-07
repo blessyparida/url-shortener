@@ -47,14 +47,19 @@ POST /api/shorten/url
 **Request Body**
 ```json
 {
-  "longUrl": "https://www.youtube.com/watch?v=example"
+"url":"https://bytebytego.com/guides/what-does-a-typical-microservice-architecture-look-like/"
 }
 ```
 **Response**
 ```json
 {
-  "shortCode": "x9k2p",
-  "shortUrl": "https://your-app.onrender.com/api/x9k2p"
+    "success": true,
+    "data": {
+        "id": 9,
+        "original_url": "https://bytebytego.com/guides/what-does-a-typical-microservice-architecture-look-like/",
+        "short_code": "-7IS1P",
+        "created_at": "2026-06-07T10:44:18.061Z"
+    }
 }
 ```
 
@@ -148,7 +153,7 @@ url-shortener/
 
 ## Live Demo
 
-Base URL: `https://your-app.onrender.com`
+Base URL: `https://url-shortener-5kco.onrender.com`
 
 ---
 
